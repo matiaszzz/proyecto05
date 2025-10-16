@@ -105,11 +105,7 @@ function FormJuegos() {
                     ))
                 }
             </ul >
-            <Row>
-                <Col>
-                    <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
-                </Col>
-            </Row>
+            <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
         </>
     )
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ModificarJuego } from "./ModificarJuego";
 import { BuscarJuego } from "./BuscarJuego";
+import { Button, Form, Col, Row } from "react-bootstrap";
 
 
 function FormJuegos() {
@@ -62,35 +63,53 @@ function FormJuegos() {
 
     return (
         <>
-            <form onSubmit={agregarJuego}>
-                <input type="text" name="nombre"
-                    placeholder="Nombre" value={formulario.nombre} onChange={handleChange} required />
-                <input min="0" type="number" name="precio"
-                    placeholder="Precio" value={formulario.precio} onChange={handleChange} required />
-                <input type="text" name="tipo"
-                    placeholder="Tipo" value={formulario.tipo} onChange={handleChange} required />
-                <button type="submit">Agregar Juego</button>
-            </form>
+            <Form onSubmit={agregarJuego}>
+                <Row>
+                    <Col>
+                        <input type="text" name="nombre"
+                            placeholder="Nombre" value={formulario.nombre} onChange={handleChange} required />
+                    </Col>
+                    <Col>
+                        <input min="0" type="number" name="precio"
+                            placeholder="Precio" value={formulario.precio} onChange={handleChange} required />
+                    </Col>
+                    <Col>
+                        <input type="text" name="tipo"
+                            placeholder="Tipo" value={formulario.tipo} onChange={handleChange} required />
+                    </Col>
+                    <Col>
+                        <Row>
+                            <Button variant="success" type="submit">Agregar Juego</Button>
+                        </Row>
+                    </Col>
+                </Row>
+            </Form >
 
             {juegos.length > 0 && <h2>Lista de Juegos</h2>}
-            <ul>
-                {juegos.map(j => (
-                    <li key={j.id}>
-                        {j.modificado === false ? (
-                            <ModificarJuego juego={j} funcion_modificar={agregar_modificado}></ ModificarJuego>
-                        ) : (
-                            <div>
-                                ID: {j.id} -
-                                Nombre: {j.nombre} -
-                                Precio: ${j.precio} -
-                                Tipo: {j.tipo}
-                            </div>
-                        )}
-                        <button onClick={() => modificar(j)}>Modificar</button>
-                    </li>
-                ))}
-            </ul>
-            <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
+            < ul >
+                {
+                    juegos.map(j => (
+                        <li key={j.id}>
+                            {j.modificado === false ? (
+                                <ModificarJuego juego={j} funcion_modificar={agregar_modificado}></ ModificarJuego>
+                            ) : (
+                                <div>
+                                    ID: {j.id} -
+                                    Nombre: {j.nombre} -
+                                    Precio: ${j.precio} -
+                                    Tipo: {j.tipo}
+                                </div>
+                            )}
+                            <Button variant="warning" onClick={() => modificar(j)}>Modificar</Button>
+                        </li>
+                    ))
+                }
+            </ul >
+            <Row>
+                <Col>
+                    <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
+                </Col>
+            </Row>
         </>
     )
 };

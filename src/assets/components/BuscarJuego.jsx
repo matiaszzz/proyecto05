@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Button, Row, Col } from "react-bootstrap";
 
 export const BuscarJuego = ({ juegos }) => {
     const [ingreso, setIngreso] = useState(0);
@@ -26,7 +27,12 @@ export const BuscarJuego = ({ juegos }) => {
                 placeholder="Ingrese ID del juego"
                 type="number"
             />
-            <button onClick={handleClick}>Buscar</button>
+            <Row>
+                <Col>
+                    <Button onClick={handleClick}>Buscar</Button>
+                </Col >
+            </Row>
+
             {busqueda && resultado.length > 0
                 ? <div>
                     ID: {resultado[0].id} -

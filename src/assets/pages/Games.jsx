@@ -2,6 +2,7 @@ import logo from '../img/logo.png'
 import musica from '../sounds/pou.mp3';
 import { useNavigate } from 'react-router-dom';
 import FormJuegos from '../components/FormJuegos';
+import { Button } from 'react-bootstrap';
 
 function Games() {
 
@@ -20,7 +21,7 @@ function Games() {
         <>
             
             <img src={logo} width="100%" />
-            <button onClick={manejarClick}>Escuchar Musica</button>
+            <Button onClick={manejarClick}>Escuchar Musica</Button>
             <h1>Cargar Juegos</h1>
             <FormJuegos />
             

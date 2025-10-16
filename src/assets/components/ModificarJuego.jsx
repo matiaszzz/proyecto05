@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 export const ModificarJuego = ({ juego, funcion_modificar }) => {
     const [nombre, setNombre] = useState("")
@@ -29,7 +30,7 @@ export const ModificarJuego = ({ juego, funcion_modificar }) => {
                 Tipo = <input placeholder={juego.tipo} type="text" onChange={cambiarTipo} /> -
                 Estado = <input placeholder={juego.estado.toString()} type="text" onChange={cambiarEstado} />
 
-                <button onClick={() => funcion_modificar(product_mod)}>Guardar</button>
+                <Button onClick={() => funcion_modificar(product_mod)}>Guardar</Button>
             </div>
         </>
     )

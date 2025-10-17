@@ -1,4 +1,3 @@
-import logo from '../img/logo.png'
 import musica from '../sounds/pou.mp3';
 import { useNavigate } from 'react-router-dom';
 import FormJuegos from '../components/FormJuegos';
@@ -20,8 +19,6 @@ function Games() {
 
     return (
         <>
-            
-            <img src={logo} width="100%" />
             <Button onClick={manejarClick}>Escuchar Musica</Button>
             <h1>Cargar Juegos</h1>
             <FormJuegos />

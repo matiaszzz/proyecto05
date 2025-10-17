@@ -13,8 +13,7 @@ function JuegoEstrellas() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisible(visible(!true))
-      //setVisible(prev => !prev) 
+      setVisible(prev => !prev) 
       generarPosicionRandom();
     }, 2000);
 
